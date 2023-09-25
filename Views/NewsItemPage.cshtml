@@ -1,0 +1,180 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.NewsItemPage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Services;
+@using Umbraco.Cms.Core.Models.PublishedContent;
+@inject IUserService Userservice;
+
+@{
+    Layout = "LayoutWithBreadcrumb.cshtml";
+    var userService = Userservice;
+    var image = Model.Value<IPublishedContent>("newsImage");
+}
+
+
+<div class="news-articles-container container">
+        <div class="news-content">
+            <h2 class="news-h2">@Model.Name("pageName")</h2>
+            <div class="news-text">
+                <p>@Model.CreateDate.ToString("MMM dd, yyyy")</p>
+                <p>@Model.Value("newsCategory")</p>
+                <p>@Model.CreatorName(Userservice)</p>
+            </div>
+        </div>
+        <div class="content-container">
+            <div class="column-content">
+                <div class="news-left-column">
+                    <img src="@image.Url()" alt="" />
+                    <div class="news-p-text">
+                    <p>@Model.Value("newsContent")</p>
+                    </div>
+                    
+                        
+                    @Model.Value("newsTags")
+                        
+                    <div class="news-buttons">
+                        @foreach(var tag in Model.Value<IEnumerable<string>>("newsTags")) 
+                        {
+                            <button class="Digitalization-button">@tag</button>
+                        }
+                        
+                    </div>
+                </div>
+            <div class="news-right-column">
+            <div class="news-input-field">
+              <input
+                class="news-search-field"
+                type="search"
+                placeholder="Type To Search"
+              />
+            </div>
+            <div class="news-content-border">
+              <div class="news-card">
+                <div class="articles-card-content">
+                  <div class="article-card-text">
+                    <h3 class="news-h3">Recent Posts</h3>
+                    <h4 class="news-h4">
+                      How To Blow Through Capital At An Incredible Rate
+                    </h4>
+                    <p class="blog-posts-text">Jan 14, 2020</p>
+                    <div class="blog-border"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="news-card">
+                <div class="articles-card-content">
+                  <div class="article-card-text">
+                    <h4 class="news-h4">
+                      Design Studios That Everyone Should Know About
+                    </h4>
+                    <p class="blog-posts-text">Jan 14, 2020</p>
+                    <div class="blog-border"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="news-card">
+                <div class="articles-card-content">
+                  <div class="article-card-text">
+                    <h4 class="news-h4">
+                      How Did We Get 1M+ Visitors In 30 Days Without Anything
+                    </h4>
+                    <p class="blog-posts-text">Jan 14, 2020</p>
+                    <div class="blog-border"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="news-card">
+                <div class="articles-card-content">
+                  <div class="article-card-text">
+                    <h4 class="news-h4">
+                      Figma On Figma: How We Built Our Website Design System
+                    </h4>
+                    <p class="blog-posts-text">Jan 14, 2020</p>
+                    <div class="blog-border"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="categories-border">
+              <div class="categories-card">
+                <div class="articles-card-content">
+                  <div class="article-card-text">
+                    <h3 class="news-h3">Categories</h3>
+                    <h4 class="news-blog-h4">Technology: 20 Posts</h4>
+                    <h4 class="news-blog-h4">Freelancing: 07 Posts</h4>
+                    <h4 class="news-blog-h4">Writing: 16 Posts</h4>
+                    <h4 class="news-blog-h4">Marketing: 11 Posts</h4>
+                    <h4 class="news-blog-h4">Business: 35 Posts</h4>
+                    <h4 class="news-blog-h4">Education: 14 Posts</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+     <div class="articles-container container-fluid">
+      <div class="news-articles-section container">
+        <p class="article-headline">Articles & News</p>
+        <div class="article-headline-section">
+          <h2 class="article-text">Get Every Single Articles & News</h2>
+          <div class="all-reviews-button">
+            <button class="transparent-button">
+              <a href="#">Browse Articles</a>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="article-image-section">
+        <div class="article-image-box">
+          <img
+            src="~/images/how_to_use_digitalization.png"
+            alt="Image 1"
+          />
+          <p>Business</p>
+          <h3 class="article-image-h3">
+            How To Use Digitalization In The Classroom
+          </h3>
+          <p class="article-image-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe et
+            placeat vitae.
+          </p>
+        </div>
+        <div class="article-image-box">
+          <img
+            src="~/images/implement_chatgpt.png"
+            alt="Image 2"
+          />
+          <p>Business</p>
+          <h3 class="article-image-h3">
+            How To Implement Chat GPT In Your Projects
+          </h3>
+          <p class="article-image-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe et
+            placeat vitae.
+          </p>
+        </div>
+        <div class="article-image-box">
+          <img
+            src="~/images/the_guide_to_support.png"
+            alt="Image 3"
+          />
+          <p>Business</p>
+          <h3 class="article-image-h3">
+            The Guide To Support Modern CSS Design
+          </h3>
+          <p class="article-image-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe et
+            placeat vitae.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+                
+           

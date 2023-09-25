@@ -1,0 +1,58 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.NewsPage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.PublishedContent;
+
+@{
+	Layout = "LayoutWithBreadcrumb.cshtml";
+}
+
+ 
+ <div class="our-news-container container-fluid">
+        <div class="our-articles-section container">
+            <div class="article-image-section">
+                
+            
+            
+            @{
+            	var selection = Umbraco?.Content(Guid.Parse("726af942-0118-4d51-bc12-98b300cbd834"))?
+                .ChildrenOfType("newsItemPage")?
+                .Where(x => x.IsVisible())
+                .OrderByDescending(x => x.CreateDate).ToList();
+            }
+            
+            @if(selection != null){
+            
+        
+            
+            	@foreach (var item in selection){
+            	    var url = item.Url();
+            	    var date = item.CreateDate;
+                    var image = item.Value<IPublishedContent>("newsImage");
+                    var categories = item.Value("newsCategory");
+                    var title = item.Name();
+                    var description = item.Value("newsDescription");
+                
+            	
+                <div class="article-image-box">
+                    <img src="@image?.Url()" alt="Image 1" />
+                    <p>@categories</p>
+                    <h3 class="article-image-h3">
+                        @title
+                    </h3>
+                    <p class="article-image-text">
+                        @description
+                    </p>
+                    <a href="@item.Url()">Read More</a>
+                </div>
+                		
+                		
+                }
+        }
+            </div>
+        </div>
+ </div>
+            
+
+    
+    

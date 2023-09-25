@@ -1,0 +1,64 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ContactPage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "LayoutWithBreadcrumb.cshtml";
+}
+
+ <div class="card-container">
+        <div class="card">
+            <div class="card-content">
+                <div class="card-icon">
+                    <i class="bi bi-geo-alt"></i>
+                </div>
+                <div class="contact-card-text">
+                    <p class="card-headline">Visit Us</p>
+                    <p>@Model.Value("contactInformationStreetName")</p>
+                    <p>@Model.Value("contactInformationPostalCode")</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <div class="card-icon">
+                    <i class="bi bi-telephone-fill"></i>
+                </div>
+                <div class="contact-card-text">
+                    <p class="card-headline">Call Us</p>
+                    <p>@Model.Value("contactInformationPhone")</p>
+                    <p>@Model.Value("contactInformationPhoneNumber2")</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <div class="card-icon">
+                    <i class="bi bi-envelope-fill"></i>
+                </div>
+                <div class="contact-card-text">
+                    <p class="card-headline">Email Us</p>
+                    <p>@Model.Value("contactInformationEmail1")</p>
+                    <p>@Model.Value("contactInformationEmail2")</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="contact-container">
+        <div class="contact-box">
+            <h2 class="contact-heading">Leave us a messsage for any information</h2>
+            <div class="input-fields">
+                <input type="text" placeholder="Your Name" />
+                <input type="email" placeholder="Email" />
+                <input type="text" placeholder="Your Message" />
+            </div>
+            <button class="submit-button">Send Message</button>
+        </div>
+    </div>
+    
+    <div class="map-container">
+        <iframe class="google-map" src="@Model.Value("googleMapURL")" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"> </iframe>
+    </div>
+    
+ 
