@@ -776,13 +776,15 @@ a {
 }
 
 .contact-heading {
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  margin-bottom: 2rem;
-  margin-left: 5rem;
-  max-width: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 4rem;
+    max-width: 30rem;
 }
 
 .input-fields {
@@ -799,7 +801,8 @@ a {
 }
 .input-fields input:nth-child(3) {
   width: 100%;
-  padding: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   margin-bottom: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
