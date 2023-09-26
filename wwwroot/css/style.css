@@ -8,6 +8,11 @@ button {
   text-decoration: none;
   border-radius: 50px;
   border: none;
+  transition: background-color 0.7s ease;
+}
+
+button:hover{
+  background-color: #facd5a;
 }
 
 .transparent-button {
@@ -619,6 +624,15 @@ a {
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
   gap: 2rem;
+}
+
+.article-image-box{
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.article-image-box:hover {
+  transform: scale(1.02); 
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
 }
 
 .article-image-h3 {
