@@ -768,7 +768,7 @@ a {
 }
 
 .contact-box {
-  background-color: #ccc;
+  background-color: #f0efe9;
   padding: 5rem;
   border-radius: 5px;
   text-align: left;
@@ -799,7 +799,7 @@ a {
   border: 1px solid #ddd;
   border-radius: 5px;
 }
-.input-fields input:nth-child(3) {
+.input-fields input:nth-child(4) {
   width: 100%;
   padding-top: 30px;
   padding-bottom: 30px;
