@@ -22,7 +22,7 @@ namespace Crito.Controllers
             if (!ModelState.IsValid)
                 return CurrentUmbracoPage();
 
-            //Skicka mail
+            //Skicka mail start
 
             //using var mail = new MailService("no-reply@crito.com", "smtp.websupport.se", 465, "jimmie.osth@gmail.com", "password123!");
 
@@ -32,7 +32,7 @@ namespace Crito.Controllers
             // to receiver
             // mail.SendAsync("jimmie.osth@gmail.com", $"{contactForm.Name} sent a contact request", "contactForm.Message").ConfigureAwait(false);
 
-            //skicka mail
+            //skicka mail end
 
             return LocalRedirect(contactForm.RedirectUrl ?? "/");
 

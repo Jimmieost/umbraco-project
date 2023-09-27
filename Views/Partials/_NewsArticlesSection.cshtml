@@ -1,4 +1,5 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using System.Linq;
 
 <div class="home-articles-container container">
     <p class="article-headline">Articles & News</p>
@@ -12,38 +13,37 @@
     </div>
     <div class="article-image-container container"></div>
     <div class="article-image-section">
-      <div class="article-image-box">
-        <img src="images/how_to_use_digitalization.png" alt="Image 1" />
-        <p>Business</p>
+     
+      
+      
+    @{
+    	var selection = Umbraco.Content(Guid.Parse("726af942-0118-4d51-bc12-98b300cbd834"))
+        .ChildrenOfType("newsItemPage")
+        .Where(x => x.IsVisible())
+        .OrderByDescending(x => x.CreateDate)
+        .Take(3);
+    }
+    
+	@foreach (var item in selection)
+	
+	
+	{
+	var image = item.Value<IPublishedContent>("newsImage");
+	
+      <a href="@item.Url()" class="article-image-box">
+        <img src="@image?.Url()" alt="Image 1" />
+        <p>item.Value("newsCategory")</p>
         <h3 class="article-image-h3">
-          How To Use Digitalization In The Classroom
+          @item.Name
         </h3>
         <p class="article-image-text">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe et
           placeat vitae.
         </p>
-      </div>
-      <div class="article-image-box">
-        <img src="images/implement_chatgpt.png" alt="Image 2" />
-        <p>Business</p>
-        <h3 class="article-image-h3">
-          How To Implement Chat GPT In Your Projects
-        </h3>
-        <p class="article-image-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe et
-          placeat vitae.
-        </p>
-      </div>
-      <div class="article-image-box">
-        <img src="images/the_guide_to_support.png" alt="Image 3" />
-        <p>Business</p>
-        <h3 class="article-image-h3">
-          The Guide To Support Modern CSS Design
-        </h3>
-        <p class="article-image-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe et
-          placeat vitae.
-        </p>
-      </div>
+      </a>
+	}
+
+
+      
     </div>
   </div>
