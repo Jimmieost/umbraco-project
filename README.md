@@ -13,4 +13,4 @@ This README aims to guide you through the setup and usage of this Umbraco projec
 1. Clone this repository to your local machine:
 
    ```shell
-   
+   https://github.com/Jimmieost/umbraco-project.git
